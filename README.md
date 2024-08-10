@@ -1,7 +1,7 @@
 # OWASP GOIÂNIA - 2024
 ## Automatizando correções de vulnerabildiades em código com OpenAI e Horusec
 
-### PDF da apresentação: [Download](https://raw.githubusercontent.com/crypto-br/owasp-go-2024/blob/main/OWASP-GO-2024-1.pdf)
+### PDF da apresentação: [Download](https://github.com/crypto-br/owasp-go-2024/blob/main/OWASP-GO-2024-1.pdf)
 
 ### Descrição:
 
