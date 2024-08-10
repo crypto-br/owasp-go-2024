@@ -14,11 +14,6 @@ Este projeto contém um script em Python que lê um relatório de vulnerabilidad
 - Relatorio gerado pelo Horusec
 - Docker
 
-## Gerando relatório do Horusec no diretório local
-```
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/exemplo:/src horuszup/horusec-cli:latest horusec start -D -e="true" -p="./src/" --ignore="..." > report.txt
-```
-
 ## Instalação
 
 1. Clone o repositório para o seu ambiente local:
@@ -45,9 +40,13 @@ BRANCH_NAME=""
 
 ## Uso
 
-1. Certifique-se de que o arquivo de log de vulnerabilidades (por exemplo, `report.txt`) esteja no mesmo diretório que o script.
-2. Execute o script:
+1. Gerando relatório do Horusec no diretório local
+```
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/exemplo:/src horuszup/horusec-cli:latest horusec start -D -e="true" -p="./src/" --ignore="..." > report.txt
+```
+2. Certifique-se de que o arquivo de log de vulnerabilidades (por exemplo, `report.txt`) esteja no mesmo diretório que o script.
+3. Execute o script:
     ```bash
     python chat_review.py
     ```
-3. O script irá gerar um relatório HTML chamado `relatorio_vulnerabilidades.html` no diretório atual e faz um pull request fazendo uma SUGESTÃO de correção.
+4. O script irá gerar um relatório HTML chamado `relatorio_vulnerabilidades.html` no diretório atual e faz um pull request fazendo uma SUGESTÃO de correção.
