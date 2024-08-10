@@ -1,0 +1,72 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Relatório de Vulnerabilidades</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h2 { color: #2F4F4F; }
+            pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; }
+            .vulnerability { margin-bottom: 20px; }
+            hr { border: 0; height: 1px; background: #ddd; margin-top: 20px; margin-bottom: 20px; }
+        </style>
+    </head>
+    <body>
+        <h1>Relatório de Vulnerabilidades</h1>
+    
+        <div class="vulnerability">
+            <h2>Vulnerabilidade Encontrada</h2>
+            <p><strong>Detalhes:</strong> (1/1) * Possible vulnerability detected: Insecure Random Number Generator</p>
+            <p><strong>Código Vulnerável:</strong></p>
+            <pre>import java.util.Random;</pre>
+            <p><strong>Sugestão de Correção:</strong></p>
+            <pre><p>A vulnerabilidade que você encontrou é relacionada ao uso de um gerador de números aleatórios inseguro em Java. A classe <code>java.util.Random</code> pode ser vulnerável a ataques de predição, especialmente em aplicações que necessitam de segurança, tais como geração de senhas, tokens ou chaves criptográficas. Para corrigir essa vulnerabilidade, você deve utilizar um gerador de números aleatórios mais seguro, como <code>java.security.SecureRandom</code>.</p>
+<p>Aqui estão os passos para corrigir a vulnerabilidade:</p>
+<ol>
+<li>
+<p><strong>Substitua a importação</strong>: Troque <code>import java.util.Random;</code> por <code>import java.security.SecureRandom;</code>.</p>
+</li>
+<li>
+<p><strong>Instancie <code>SecureRandom</code></strong>: Em vez de criar uma instância de <code>Random</code>, crie uma instância de <code>SecureRandom</code>.</p>
+</li>
+<li>
+<p><strong>Modifique seu código para usar <code>SecureRandom</code></strong>: Ajuste como você gera números aleatórios. O <code>SecureRandom</code> funciona de maneira semelhante ao <code>Random</code>, mas fornece uma maior segurança.</p>
+</li>
+</ol>
+<h3>Exemplo:</h3>
+<p>Antes da correção:
+```java
+import java.util.Random;</p>
+<p>public class App {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(100); // Gera um número aleatório entre 0 e 99
+        System.out.println(randomNumber);
+    }
+}
+```</p>
+<p>Depois da correção:
+```java
+import java.security.SecureRandom;</p>
+<p>public class App {
+    public static void main(String[] args) {
+        SecureRandom secureRandom = new SecureRandom();
+        int randomNumber = secureRandom.nextInt(100); // Gera um número aleatório entre 0 e 99 de forma segura
+        System.out.println(randomNumber);
+    }
+}
+```</p>
+<h3>Considerações Finais:</h3>
+<ul>
+<li>O <code>SecureRandom</code> pode ter um desempenho ligeiramente inferior ao <code>Random</code> devido à sua natureza mais segura, mas é crucial para aplicações sensíveis à segurança.</li>
+<li>Certifique-se de testar seu código após fazer essa substituição, para garantir que ele continue funcionando conforme esperado.</li>
+<li>Sempre revise outras partes do seu código que possam estar usando o <code>java.util.Random</code> e considere a mesma substituição.</li>
+</ul>
+<p>Seguindo essas etapas, você deve ser capaz de mitigar a vulnerabilidade reportada pelo Horusec.</p></pre>
+        </div>
+        <hr>
+        
+    </body>
+    </html>
+    

@@ -1,0 +1,4 @@
+openai
+markdown
+pyproject-toml
+pygithub
